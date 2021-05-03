@@ -1,9 +1,9 @@
 <?php
-include "conexao.php";
+include "seubanco";
 
                 $id = $_POST['userid'] ?? '';
 
-                $sql = "SELECT * FROM colaboradores INNER JOIN dispositivos ON colaboradores.id_colaborador = dispositivos.id_colaborador WHERE dispositivos.id_colaborador = $id";
+                $sql = "SELECT * FROM suatabela INNER JOIN outratabela ON suatabela.id_colaborador = outratabela.id_colaborador WHERE outratabela.id_colaborador = $id";
                 
                 $query = mysqli_query($conexao, $sql);
                 echo "
@@ -22,13 +22,13 @@ include "conexao.php";
                     while ($row = mysqli_fetch_array($query)){
                         echo "
                             <tr>
-                          <!--  <td>$row[nome]</td>-->
-                            <td>$row[nome_dispositivo]</td>
-                            <td>$row[cadeira]</td>
-                            <td>$row[celular]</td>
-                            <td>$row[mochila]</td>
-                            <td>$row[fone]</td>
-                            <td>$row[patrimonio]</td>
+                          <!--  <td>$row[coluna_1]</td>-->
+                            <td>$row[coluna_2]</td>
+                            <td>$row[coluna_3]</td>
+                            <td>$row[coluna_4]</td>
+                            <td>$row[coluna_5]</td>
+                            <td>$row[coluna_6]</td>
+                            <td>$row[coluna_7]</td>
                             </tr>
 
                         ";
